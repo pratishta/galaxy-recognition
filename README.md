@@ -35,7 +35,7 @@ Additionally, to use this tutorial, an older version of OpenCV had to be used (o
 
 Assuming there are positive and negative images in their respective directories and that the used programms are provided:
 
-```shell
+```
 find ./positive_images -iname "*.jpg" > positives.txt
 find ./negative_images -iname "*.jpg" > negatives.txt
 perl bin/createsamples.pl positives.txt negatives.txt samples 150 "opencv_createsamples -bgcolor 0 -bgthresh 0 -maxxangle 1.1 -maxyangle 1.1 maxzangle 0.5 -maxidev 40 -w 40 -h 40"
@@ -45,10 +45,51 @@ g++ `pkg-config --libs --cflags opencv` -I. -o mergevec mergevec.cpp cvboost.cpp
 ```
 At this point, the mergevec program should be created and copied into the directory with the samples.
 
-```shell
+```
 find ./samples -name '*.vec' > samples.txt
 ./mergevec samples.txt samples.vec
 opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt -numStages 3 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -numPos 100 -numNeg 60 -w 40 -h 40 -mode ALL -precalcValBufSize 1024 -precalcIdxBufSize 1024
+```
+```
+opencv_traincascade
+``` should create an .xml file which could be the classifier. Then the following node program should run the classifier on the images specified in ```imageFiles```
+```js
+var cv = require('opencv');
+
+console.log('Going through this ish.');
+
+var COLOR = [0, 255, 0]; // default red
+var thickness = 2; // default 1
+var cascadeFile = './cascade.xml';
+
+var inputFiles = [
+'./J094401.87-003832.1-irg.cutout.jpg',
+'./J094446.23-004118.2-irg.cutout.jpg',
+'./J094622.67-000759.3-irg.cutout.jpg',
+'./J094628.56-002603.4-irg.cutout.jpg',
+'./J094631.60-005917.7-irg.cutout.jpg',
+'./J094651.40-010228.5-irg.cutout.jpg',
+'./J094700.41-002430.2-irg.cutout.jpg',
+'./J094725.62-001626.6-irg.cutout.jpg',
+'./J094842.33-002114.4-irg.cutout.jpg',
+'./J094919.08+000144.0-irg.cutout.jpg'
+];
+
+inputFiles.forEach(function(fileName) {
+  cv.readImage(fileName, function(err, im) { 
+    if (err) throw err;
+    if (im.width() < 1 || im.height() < 1) throw new Error('Image has no size');
+    im.detectObject(cascadeFile, { neighbors: 2, scale: 2}, function(err, objects) { 
+       
+      console.log(objects); 
+      for(var k = 0; k < objects.length; k++) { 
+        var object = objects[k]; 
+        im.rectangle([object.x, object.y], [object.x + object.width, object.y + object.height], COLOR, 2); 
+      }
+      im.save(fileName.replace(/.jpg/, 'processed.jpg')); 
+    }); 
+  }); 
+});
 ```
 
 #### Results
