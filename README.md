@@ -1,5 +1,4 @@
 # Using OpenCV for Galaxy Morphology Recognition 
-#### Pratishta Yerakala
 
 **Summary**:
 The goal is to use OpenCV's cascade classifiers to train on images of nearby galaxies in order to  recognize images of distant galaxies. 
@@ -19,3 +18,13 @@ After compilation was successful and the program was running, it was taking quit
 ```shell
 convert *.jpg -resize 40x40 *.jpg 
 ```
+**Miscellaneous**
+
+There were other issues with not having the correct packages downloaded. The following were necessary:
+```
+imagemagick
+node
+npm
+opencv
+node-opencv
+``` 
