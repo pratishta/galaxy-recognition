@@ -50,9 +50,7 @@ find ./samples -name '*.vec' > samples.txt
 ./mergevec samples.txt samples.vec
 opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt -numStages 3 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -numPos 100 -numNeg 60 -w 40 -h 40 -mode ALL -precalcValBufSize 1024 -precalcIdxBufSize 1024
 ```
-```opencv_traincascade
-``` should create an .xml file which could be the classifier. Then the following node program should run the classifier on the images specified in ```imageFiles```
-
+opencv_traincascade should create an .xml file which could be the classifier. Then the following node program should run the classifier on the images specified in inputFiles
 
 ```javascript
 var cv = require('opencv');
