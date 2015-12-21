@@ -60,3 +60,15 @@ Additionally, to use this tutorial, an older version of OpenCV had to be used (o
 ![](/classifier/J094842.33-002114.4-irg.cutoutprocessed.jpg)
 ![](/classifier/J094631.60-005917.7-irg.cutoutprocessed.jpg)
 ![](/classifier/J094919.08+000144.0-irg.cutoutprocessed.jpg)
+
+There were only 3 immediately recognizable elliptical galaxies in the images that were fed but the classifier identified several in every single one of the images. This is because the classifier was only run for three stages and in that time, there wasn't enough information in the postivie samples or the negative samples (more importantly) to recognize elliptical galaxies well.
+
+#### Doing Better
+
+There are several things that need to be done for this program to give proper results:
+
+1. Negative samples - there need to be more of them, and more of them generated. The fact that the classifier could identify an elliptical galaxy in these fed images shows that it didn't know enough about what elliptical galxies *don't* look like. The current negative samples were all other types of galaxies, but star fields, nebulae, and even other mundane things such as images of smoke should be used as negative samples. 
+
+1. Training stages - given a faster machine with more memory (and a more patient student), the classifier could become more robust by training more intensively. With the given sample sizes of all the images, the classifier is taking over 11 hours to even get past stage 4. But to get any, even marginally more accurate results, the classifier needs to be trained for a longer time.
+
+1. Image size - the image size of the nearby galaxies were cut down to 40x40 pixels so that the classifer could train faster. However, this defeats the purpose of being able to study close up images and recognizing the featres from a distance. Ideally, this classifier should be analogous to looking at the profile or a person's face and identifying them from a crowd. But given the small resolution of the positive and negative samples, there wasn't nearly as much information that the classifier could have trained on as it should have. 
