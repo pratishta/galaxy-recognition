@@ -35,17 +35,17 @@ Additionally, to use this tutorial, an older version of OpenCV had to be used (o
 
 **Images fed to the classifier**
 
-![](/classifier/J094401.87-003832.1-irg.cutoutprocessed.jpg)
-![](/classifier/J094651.40-010228.5-irg.cutoutprocessed.jpg)
-![](/classifier/J094446.23-004118.2-irg.cutoutprocessed.jpg)
-![](/classifier/J094700.41-002430.2-irg.cutoutprocessed.jpg)
-![](/classifier/J094622.67-000759.3-irg.cutoutprocessed.jpg)
-![](/classifier/J094725.62-001626.6-irg.cutoutprocessed.jpg)
-![](/classifier/J094628.56-002603.4-irg.cutoutprocessed.jpg)
-![](/classifier/J094628.56-002603.4-irg.cutoutprocessed.jpg)
-![](/classifier/J094842.33-002114.4-irg.cutoutprocessed.jpg)
-![](/classifier/J094631.60-005917.7-irg.cutoutprocessed.jpg)
-![](/classifier/J094919.08+000144.0-irg.cutoutprocessed.jpg)
+![](/classifier/J094401.87-003832.1-irg.cutout.jpg)
+![](/classifier/J094651.40-010228.5-irg.cutout.jpg)
+![](/classifier/J094446.23-004118.2-irg.cutout.jpg)
+![](/classifier/J094700.41-002430.2-irg.cutout.jpg)
+![](/classifier/J094622.67-000759.3-irg.cutout.jpg)
+![](/classifier/J094725.62-001626.6-irg.cutout.jpg)
+![](/classifier/J094628.56-002603.4-irg.cutout.jpg)
+![](/classifier/J094628.56-002603.4-irg.cutout.jpg)
+![](/classifier/J094842.33-002114.4-irg.cutout.jpg)
+![](/classifier/J094631.60-005917.7-irg.cutout.jpg)
+![](/classifier/J094919.08+000144.0-irg.cutout.jpg)
 
 **Processed images**
 
@@ -60,4 +60,3 @@ Additionally, to use this tutorial, an older version of OpenCV had to be used (o
 ![](/classifier/J094842.33-002114.4-irg.cutoutprocessed.jpg)
 ![](/classifier/J094631.60-005917.7-irg.cutoutprocessed.jpg)
 ![](/classifier/J094919.08+000144.0-irg.cutoutprocessed.jpg)
-
