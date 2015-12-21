@@ -20,11 +20,17 @@ convert *.jpg -resize 40x40 *.jpg
 ```
 **Miscellaneous**
 
-There were other issues with not having the correct packages downloaded. The following were necessary:
+There were other issues with not having the correct packages downloaded. The following were necessary dependencies:
 ```
 imagemagick
 node
 npm
-opencv
+opencv-2.4.9
 node-opencv
 ``` 
+
+Additionally, to use this tutorial, an older version of OpenCV had to be used (opencv-2.4.9) because the latest version didn't contain a haartraining directory which had necessary files. 
+
+![GitHub Logo](/classifier/J094401.87-003832.1-irg.cutoutprocessed.jpg)
+
+
