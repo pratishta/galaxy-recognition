@@ -50,7 +50,7 @@ find ./samples -name '*.vec' > samples.txt
 ./mergevec samples.txt samples.vec
 opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt -numStages 3 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -numPos 100 -numNeg 60 -w 40 -h 40 -mode ALL -precalcValBufSize 1024 -precalcIdxBufSize 1024
 ```
-opencv_traincascade should create an .xml file which could be the classifier. Then the following node program should run the classifier on the images specified in inputFiles
+`opencv_traincascade` should create an .xml file which could be the classifier. Then the following node program should run the classifier on the images specified in `inputFiles`
 
 ```javascript
 var cv = require('opencv');
@@ -132,3 +132,5 @@ There are several things that need to be done for this program to give proper re
 1. Training stages - given a faster machine with more memory (and a more patient student), the classifier could become more robust by training more intensively. With the given sample sizes of all the images, the classifier is taking over 11 hours to even get past stage 4. But to get any, even marginally more accurate results, the classifier needs to be trained for a longer time.
 
 1. Image size - the image size of the nearby galaxies were cut down to 40x40 pixels so that the classifer could train faster. However, this defeats the purpose of being able to study close up images and recognizing the featres from a distance. Ideally, this classifier should be analogous to looking at the profile or a person's face and identifying them from a crowd. But given the small resolution of the positive and negative samples, there wasn't nearly as much information that the classifier could have trained on as it should have. 
+
+1. Looking for something more specific - for doing the first run, looking for an elliptical galaxy might not have been the best choice. Compared to other morphologies, it has a more nebulous and ambiguous structure so the classifier might not have anything specific to look for. More research will 
